@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IES易企算平台服务</title>
+    <!--启用最新浏览器内核-->
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="../../../resources/css/common_px.css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css"/>
+    <link rel="stylesheet" href="../../../resources/css/jquery-ui.css"/>
+
+</head>
+<#assign path="${request.contextPath}"/>
+<style>
+    .ui-autocomplete {
+        max-height: 100px;
+        overflow-y: auto;
+        /* 防止水平滚动条 */
+        overflow-x: hidden;
+        width: 350px;
+        height: 109px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px #ebebeb;
+        position: absolute;
+        left: -21px;
+        top: 78px;
+        text-align: left;
+        padding: 6px 6px;
+    }
+
+    /* IE 6 不支持 max-height
+     * 我们使用 height 代替，但是这会强制菜单总是显示为那个高度
+     */
+    * html .ui-autocomplete {
+        height: 100px;
+    }
+</style>
+<body>
+<div class="right-content">
+    <div class="content-tab">
+        <a href="#" class="tab-switch-left"></a>
+        <ul class="cont-title">
+            <li class="active">酬金数据轨迹模块</li>
+        </ul>
+    </div>
+
+    <table class="cont-block mgt-50">
+        <tr>
+            <td rowspan="4" style="width: 400px; position: relative;
+    bottom: 70px;
+" class="tc"><img src="../../../../images/img-1.png"/></td>
+            <td style="position: relative;">
+                <p class="mgb-5 pdl-15 cl">场景名称</p>
+                <input type="text" id="click-down" class="ipt-nor" placeholder="请输入场景名称">
+
+            </td>
+            <td style="position: relative;">
+                <p class="mgb-5 pdl-15 cl">账期</p>
+                <div class="clear">
+                    <input type="text" id="queryDate" class="ipt-left"/>
+                    <a onclick="my_WdatePicker('queryDate')" class="ipt-downTangle"></a>
+                </div>
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="2" style="position: relative;">
+                <p class="mgb-5 pdl-15 cl">查询例</p>
+                <div class="clear">
+                    <input type="text" id="queryColumn" class="ipt-left"/>
+                    <a href="javascript:selectColumn()" class="ipt-downTangle"></a>
+                </div>
+                <div class="new-float-1" id="columns">
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p class="mgb-5 pdl-15 cl">查询例值</p>
+                <textarea rows="5" class="ipt-full" style="width: 76% !important;"
+                          placeholder="注：多个查询值，用英文逗号隔开，最多输出5个值。"
+                          id="columnValues"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p class="mgb-5 pdl-15 cl-2">查看缓冲结果：<span class="color-b" id="QueryList"></span></p>
+                <div class="tc pd-15">
+                    <span class="gra-box new-sty-box" style="position: relative;
+    bottom: 25px;"><img src="../../../../images/ies-button.png" onclick="doQuery()"/></span>
+
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="result-window">
+    <div class="head-bar" id="close-button">
+        <p>请选择要看的缓冲结果</p>
+        <span>&times;</span>
+    </div>
+    <div class="new-table">
+        <form>
+            <table id="hisInfo">
+
+            </table>
+        </form>
+    </div>
+    <div class="button-container">
+        <div class="button-1" name="viewDetial">查看</div>
+        <div class="button-2">取消</div>
+    </div>
+    <!--临时存放 要查看的详情的记录的id-->
+    <input type="hidden" id="viewDetialInfo_id">
+    <!--临时存放 查询的场景id-->
+    <input type="hidden" id="sceneId">
+    <!--临时存放 批次id-->
+    <input type="hidden" id="jobId">
+</div>
+<script src="../../../js/jquery-1.11.3.min.js"></script>
+<script src="../../../js/jquery-ui.min.js"></script>
+<script src="../../../js/settle-util.js"></script>
+<script src="../../../js/My97DatePicker/WdatePicker.js"></script>
+<script src="../../../js/audit/home.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SpringBoot-JPA/SpringBoot-JPA.iml" filepath="$PROJECT_DIR$/SpringBoot-JPA/SpringBoot-JPA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringBoot-Mybatis/SpringBoot-Mybatis.iml" filepath="$PROJECT_DIR$/SpringBoot-Mybatis/SpringBoot-Mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringBoot-Shiro/SpringBoot-Shiro.iml" filepath="$PROJECT_DIR$/SpringBoot-Shiro/SpringBoot-Shiro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringBoot-atomikos/SpringBoot-atomikos.iml" filepath="$PROJECT_DIR$/SpringBoot-atomikos/SpringBoot-atomikos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringBoot-multiDataSource/SpringBoot-multiDataSource.iml" filepath="$PROJECT_DIR$/SpringBoot-multiDataSource/SpringBoot-multiDataSource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringBoot-web/SpringBoot-web.iml" filepath="$PROJECT_DIR$/SpringBoot-web/SpringBoot-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SpringBootWorkSpace.iml" filepath="$PROJECT_DIR$/.idea/SpringBootWorkSpace.iml" />
+    </modules>
+  </component>
+</project>

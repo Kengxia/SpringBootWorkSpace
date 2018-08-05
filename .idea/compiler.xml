@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="SpringBoot-atomikos" />
+        <module name="SpringBoot-JPA" />
+        <module name="SpringBoot-multiDataSource" />
+        <module name="SpringBoot-Mybatis" />
+        <module name="SpringBoot-Shiro" />
+        <module name="SpringBoot-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="mul-at" target="1.6" />
+      <module name="SpringBoot-atomikos" target="1.8" />
+      <module name="SpringBoot-JPA" target="1.8" />
+      <module name="SpringBoot-multiDataSource" target="1.8" />
+      <module name="SpringBoot-Mybatis" target="1.8" />
+      <module name="SpringBoot-Shiro" target="1.8" />
+      <module name="SpringBoot-web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

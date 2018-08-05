@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/SpringBoot-JPA" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringBoot-Mybatis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringBoot-Shiro" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringBoot-atomikos" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringBoot-multiDataSource" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringBoot-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mul-at-master" charset="UTF-8" />
+  </component>
+</project>

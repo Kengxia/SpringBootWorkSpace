@@ -1,0 +1,58 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+    datasource: #数据源配置
+      name: test
+      url: jdbc:mysql://127.0.0.1:3306/cloud
+      username: root
+      password:
+      # 使用druid数据源
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+      filters: stat
+      maxActive: 20
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x' from dual
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+    jpa:
+      show-sql: true
+      hibernate:
+        ddl-auto: create
+      database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    thymeleaf: #thymeleaf 配置
+      cache: false
+      prefix: classpath:/views/
+      suffix: .html
+      encoding: utf-8
+    http:
+      encoding:
+        charset: UTF-8
+        enabled: true
+        force: true
+dubbo:
+  application: prm-iEaseSettle-app
+  protocol: zookeeper
+  address: 172.21.11.43:2181,172.21.11.44:2181,172.21.11.45:2181
+  timeout: 250000
+  rule:
+    group: rule
+  computer:
+    group: computer
+logging:
+  level:
+    root: WARN
+    org:
+      springframework:
+        web: info
+      hibernate: ERROR

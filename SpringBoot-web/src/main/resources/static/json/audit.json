@@ -1,0 +1,86 @@
+{
+  "basic" : {
+    "inputNum" : 5,
+    "totalNum" : 11,
+    "multiNum" : 3,
+    "unKnownNum" : 2,
+    "successNum"  : 1,
+    "failedNum" : 10,
+    "illegalNo" : "1346684858、12356",
+    "expiredScene" : "****政策有效期到2018-03-31，不包含结算账期201804"
+  },
+  "succ" : [
+    {
+      "dealDate" : "2018/05/18 18:12:12",
+      "businessNo" : "1223335578",
+      "feeId" : "ACBREN",
+      "expression" : "数据业务_当月月费 * 0.5 + 0",
+      "cost" : "5元",
+      "segments" : [{
+        "id" : "1",
+        "name" : "***********",
+        "children" : [{
+        }],
+        "intervals" : [{
+            "addFee":200,
+            "intervalId":"15270512462468",
+            "upperLimit":4000,
+            "feeRate":0.6,
+            "floorLimit":2000
+        }],
+        "intervalBase":{
+            "field":"BILL_CHARGE",
+            "fieldName":"数据业务_当月月费"
+        },
+        "weightFlag" : "统一权重"
+      }]
+    }
+  ],
+  "relScenesFailure" : [{
+    "dealDate" : "2018/05/18 18:12:12",
+    "businessNo" : "1223335578",
+    "feeId" : "ACBREN",
+    "relCode" : "10000756",
+    "relName" : "入网大类",
+    "relType" : "已结不结",
+    "relMode" : "连续月数",
+    "relPeriodNum" : 2,
+    "result" : "被关联政策已结算"
+  }],
+  "conditionsFailure" : [{
+    "dealDate" : "2018/05/18 18:12:12",
+    "businessNo" : "1223335578",
+    "feeId" : "ACBREN",
+    "conditions" : [{
+      "expression" : "代办任务_产品名称等于30元流量包",
+      "value" : "20元流量包",
+      "isSucc" : true
+    }]
+  }],
+  "segmentFailure" : [{
+    "dealDate" : "2018/05/18 18:12:12",
+    "businessNo" : "1223335578",
+    "feeId" : "ACBREN",
+    "segments" : [{
+      "id" : "1",
+      "name" : "***********",
+      "isSucc" : true,
+      "children" : [{}],
+        "intervals" : [{
+            "addFee":200,
+            "intervalId":"15270512462468",
+            "upperLimit":4000,
+            "feeRate":0.6,
+            "floorLimit":2000
+        }],
+        "intervalBase":{
+            "field":"BILL_CHARGE",
+            "fieldName":"数据业务_当月月费"
+        },
+        "weightFlag" : "统一权重"
+    }]
+  }],
+  "unknown" : ["323231","12412412"]
+
+
+}

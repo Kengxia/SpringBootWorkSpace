@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>酬金数据轨迹模块</title>
+	<!--启用最新浏览器内核-->
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="renderer" content="webkit">
+	<link rel="stylesheet" href="../../../resources/css/common_px.css"/>
+	<link rel="stylesheet" href="../../../resources/css/style.css"/>
+</head>
+<#assign path="${request.contextPath}"/>
+<body>
+
+<!--标题头部-->
+<!-- <header>
+    <div class="fs-16 bold bg-db">IES</div>
+    <div class="head-title fs-14">易企算服务平台</div>
+    <div class="head-notice">
+        <i></i>
+        <span>12</span>
+    </div>
+    <div>
+        <span>CN</span>
+        <i class="title-downArrow"></i>
+    </div>
+    <div>帮助与文档</div>
+    <div>
+        <span class="head-user"></span>
+        <span>朱平安</span>
+        <i class="title-downArrow"></i>
+    </div>
+</header> -->
+
+<!--左侧菜单栏-->
+<!-- <div class="left-menu">
+    <div class="icon-menu"></div>
+    <ul class="menu-list">
+        <li class="icon-chart">报表设计</li>
+        <li class="icon-mana">调度平台</li>
+        <li class="icon-set">系统管理</li>
+    </ul>
+</div> -->
+
+<div id="mask" class="mask"></div>
+<!--右侧内容栏-->
+<div class="right-content">
+	<input id="uniqueId" type="hidden" value="${id}"/>
+	<input id="rootCategoryCode" type="hidden" value="${rootCategoryCode}"/>
+	<input id="status" type="hidden" value="${status}"/>
+
+	<!--顶部标题栏-->
+	<div class="content-tab">
+		<a href="#" class="tab-switch-left"></a>
+		<ul class="cont-title">
+			<li class="active">酬金数据轨迹模块</li>
+		</ul>
+	</div>
+
+	<!--检查-->
+	<div class="rem-check new-sty-3">
+		<table class="cont-block">
+			<tr>
+				<td class="w-6 tc">
+					<div class="ani-check">
+						<img src="../../../images/top.gif" id="checkStepPic">
+					</div>
+				</td>
+				<td class="new-sty-5">
+					<div class="img-5-box">
+						<span class="img-5"></span>
+						<span class="img-6" style="display: none"></span>
+					</div>
+					<div class="mgt-30"><span class="gra-box-2 color-b">检查项：<span class="new-sty-4" id="checkStep"></span></span></div>
+				</td>
+				<td>
+					<div><a class="gra-box" href="#" id="queryNext"><img src="../../../images/top-banner-button-1.png"></a></div>
+					<div class=""><a class="gra-box" href="#"><img src="../../../../images/top-banner-button-2.png"></a></div>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<!--分割条-->
+	<!--<div class="deviceBar deviceBarAnimation"></div>-->
+	<div class="deviceBar" style="width: 100% !important;"></div>
+
+	<!--查看-->
+	<div class="bg-y color-o" style="padding:15px 0 15px 60px;display: none;font-size: 13px !important;" id="basicTips"></div>
+
+	<!--基础信息检查-->
+	<div id="basic">
+		<!--标题-->
+		<div class="pd-15 bg-g top-bar">
+			<!--动画图-->
+			<div class="rem-anImg">
+				<img src="../../../../images/icon-1.gif" class="hide"/>
+				<img style="display: none;" src="../../../../images/icon-1.png" class="show-1"/>
+			</div>
+			基础信息检查 ---<span class="color-r mgl-5 mgr-5">2项</span>校验
+			<span class="color-gry">手机号是否合法，政策是否过期</span>
+			<span class="icon-director fr"></span>
+		</div>
+
+		<!--内容块-->
+		<div class="ovr new-float-35" style="display: none;">
+			<div class="pdl-40 lh40">
+				<p class="mgt-10" id="illegalNo" style="display: none"></p>
+				<p id="expiredScene" style="display: none"></p>
+			</div>
+		</div>
+	</div>
+
+	<!--结算成功数据-->
+	<div class="mgt-10" id="over-success">
+		<h4 class="data-suc">结算成功的数据</h4>
+		<!--<div class="only-data" style="height: 202px;">-->
+			<!--<div class="data-left"><img src="../../../../images/category/test_acc_fee.png">-->
+				<!--<p class="mgt-10">13486537389</p></div>-->
+			<!--<div class="data-right">-->
+				<!--<div class="lh20">-->
+					<!--<table>-->
+						<!--<tbody>-->
+						<!--<tr>-->
+							<!--<td>办理日期：2018/05/18 18:12:12</td>-->
+							<!--<td>业务流水：1223335578</td>-->
+						<!--</tr>-->
+						<!--</tbody>-->
+					<!--</table>-->
+				<!--</div>-->
+				<!--<div class="lh20">-->
+					<!--<div class="pd-15">-->
+						<!--<div>-->
+							<!--<div class="inline-block segTitle"><p class="icon-dir">用户发展_开户日</p></div>-->
+							<!--<div class="inline-block segContent"><p>在【29，31】之间</p></div>-->
+						<!--</div>-->
+						<!--<div><p class="icon-doc">(权重类型：统一权重)分段区间：0&lt;=月费&lt;2000</p></div>-->
+					<!--</div>-->
+				<!--</div>-->
+				<!--<div class="data-result lh20"><p>计算公式：数据业务_当月月费 * 0.5 + 0</p>-->
+					<!--<p class="mgt-10">酬金金额：<span class="color-r">5元</span></p></div>-->
+			<!--</div>-->
+		<!--</div>-->
+	</div>
+
+
+	<!--结算失败数据-->
+	<div id="failure">
+		<h4 class="data-fail">结算失败的数据</h4>
+		<!--标题-->
+		<div class="pd-15 bg-g mgt-10 top-bar">
+			<!--动画图-->
+			<div class="rem-anImg">
+				<img src="../../../../images/icon-2.gif" class="hide">
+				<img style="display: none;" src="../../../../images/icon-2.png" class="show-1"/>
+			</div>
+			结算过程检查 ---<span class="color-r mgl-5 mgr-5">3项</span>校验
+			<span class="color-gry">关联场景、结酬条件、分段条件</span>
+			<span class="icon-director fr"></span>
+		</div>
+
+		<!--分段设置-->
+		<div class="ovr" style="display: none">
+			<div id="relate-scene">
+				<!--<span class="rem-fail-cond mgt-10 mgl-40">不满足关联场景如下</span>-->
+				<!--<div class="only-data" style="height: 202px;">-->
+					<!--<div class="data-left">-->
+						<!--<img src="../../../../images/category/test_acc_fee.png">-->
+						<!--<p class="mgt-10">13486537389</p></div>-->
+					<!--<div class="data-right">-->
+						<!--<div class="lh20">-->
+							<!--<table>-->
+								<!--<tbody>-->
+								<!--<tr>-->
+									<!--<td>办理日期：2018/05/18 18:12:12</td>-->
+									<!--<td>业务流水：1223335578</td>-->
+								<!--</tr>-->
+								<!--</tbody>-->
+							<!--</table>-->
+						<!--</div>-->
+						<!--<div class="lh20">-->
+							<!--<div class="new-detail-box">-->
+								<!--<p>政策基本信息：</p>-->
+								<!--<p>关联场景编码：10000756</p>-->
+								<!--<p>关联场景名称：入网大类</p>-->
+								<!--<p>关联场景类型：已结不结</p>-->
+								<!--<p>关联方式：连续月数</p>-->
+								<!--<p>关联账期数：2</p>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="data-result lh20">-->
+							<!--<p>计算结果：<span class="color-r">被关联政策已结算</span></p>-->
+						<!--</div>-->
+					<!--</div>-->
+				<!--</div>-->
+			</div>
+			<div id="result-condition">
+			</div>
+			<div id="oneby-condition">
+			</div>
+		</div>
+
+	</div>
+
+	<!--找不到原因-->
+	<div id="unknown">
+		<div class="pd-15 bg-g mgt-10 top-bar">
+			<!--动画图-->
+			<div class="rem-anImg">
+				<img src="../../../images/icon-4.gif" class="hide"/>
+				<img style="display: none;" src="../../../images/icon-4.png" class="show-1"/>
+			</div>
+			找不到原因：以下数据未能在结算结果中找到，请提供<span class="color-r mgl-5 mgr-5">手机号+政策ID</span>给维护人员处理
+			<span class="icon-director fr"></span>
+		</div>
+		<div class="ovr" style="display: none;">
+			<ul class="data-block clear pd-15" id="unknownUl">
+			</ul>
+		</div>
+
+	</div>
+</div>
+
+<script src="../../../js/jquery-1.11.3.min.js"></script>
+<script src="../../../js/jquery.actual.min.js"></script>
+<script src="../../../js/settle-util.js"></script>
+<script src="../../../js/settle-enum.js"></script>
+<script src="../../../js/StringFormat.js"></script>
+<script src="../../../js/audit/detail.js"></script>
+
+</body>
+</html>

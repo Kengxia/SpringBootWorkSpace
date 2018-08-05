@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  datasource:
+    primary:
+      url: jdbc:mysql://localhost:3306/cloud
+      username: root
+      password:
+    secondary:
+      url: jdbc:mysql://localhost:3306/cloud
+      username: root
+      password:
+  jpa:
+    database: mysql
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect

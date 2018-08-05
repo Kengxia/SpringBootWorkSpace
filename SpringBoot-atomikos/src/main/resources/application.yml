@@ -1,0 +1,30 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  datasource:
+    primary:
+      url: jdbc:mysql://localhost:3306/cloud?useUnicode=true&characterEncoding=UTF-8&pinGlobalTxToPhysicalConnection=true
+      username: root
+      password:
+    secondary:
+      url: jdbc:mysql://localhost:3306/mysql?useUnicode=true&characterEncoding=UTF-8&pinGlobalTxToPhysicalConnection=true
+      username: root
+      password:
+  jpa:
+    database: mysql
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+logging:
+  level:
+    root: WARN
+    org:
+      springframework:
+        web: info
+      hibernate: ERROR

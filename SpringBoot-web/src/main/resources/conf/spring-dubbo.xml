@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd"
+       default-lazy-init="false">
+
+    <dubbo:application name="${dubbo.application}" />
+    <dubbo:registry protocol="${dubbo.protocol}" address="${dubbo.address}"  timeout="${dubbo.timeout}" file="${dubbo.application}"/>
+    <dubbo:consumer timeout="${dubbo.timeout}" retries="0"/>
+
+    <dubbo:reference id="settleRuleDesignDubboClient" group="${dubbo.rule.group}" interface="com.sitech.prm.settle.rule.api.client.RuleClientDubboProvider"/>
+    <!--<dubbo:reference id="dataClientDubboProvider" group="${data.group}" interface="com.sitech.prm.data.api.client.DataClientDubboProvider"/>-->
+
+    <!--<dubbo:reference id="demoService" group="${computer.group}" interface="com.sitech.prm.settle.compute.api.client.ComputeDubboClientProvider"/>-->
+    <dubbo:reference id="computeAuditClient" group="${dubbo.computer.group}" interface="com.sitech.prm.settle.compute.api.client.IComputeAuditClient"/>
+
+</beans>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ma.work.mapper.ShopCarTestMapper" >
+  <resultMap id="BaseResultMap" type="com.ma.work.pojo.ShopCarTest" >
+    <result column="product_id" property="productId" jdbcType="VARCHAR" />
+    <result column="buyer" property="buyer" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    product_id, buyer
+  </sql>
+
+  <insert id="insert" parameterType="com.ma.work.pojo.ShopCarTest" >
+    insert into shop_car_test (product_id, buyer)
+    values (#{productId,jdbcType=VARCHAR}, #{buyer,jdbcType=VARCHAR})
+  </insert>
+
+  <select id="selecList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from shop_car_test
+  </select>
+</mapper>
